@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="School_Calculator.Faculty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:School_Calculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="376"  Source="http://www.rasmussen.edu/images/logo-internal.png"/>
+        <HyperlinkButton Content="Home" HorizontalAlignment="Left" Margin="390,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.991,-2.782" Height="72" Width="42" Click="HyperlinkButton_Click"/>
+        <Border BorderThickness="1" BorderBrush="DarkBlue">
+            <TextBox x:Name="txtBoxFooter" TextAlignment="Left" HorizontalAlignment="Left" Margin="10,720,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" BorderBrush="#FFFDFDFD" IsReadOnly="True"/>
+        </Border>
+    </Grid>
+</Page>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Windows.UI.Popups;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
@@ -39,6 +40,9 @@ namespace School_Calculator
         public MainPage()
         {
             this.InitializeComponent();
+            BL_PageContent.CreatedBy = "Created By: Leonel Gonzalez";
+            txtBoxFooter.Text = BL_PageContent.CreatedBy;
+
         }
         //number click set the number to value and display
         private void button_NumberOne_Click(object sender, RoutedEventArgs e)
@@ -85,6 +89,52 @@ namespace School_Calculator
             SavedTerm.Clear();
             Operands.Clear();
             Result = 0;
+        }
+
+        
+        async private void BtnCourse_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new MessageDialog(""); //init dialog object
+            var limit = listViewCourses.Items.Count >= 5 ? true : false; //max of 5 items in list
+            if (limit) //maximium reached?
+            {
+                listViewCourses.Items.Clear(); //clear the list
+            }
+            String name = null;
+            if (sender is Button) //get the sender's name
+            {
+                name = (sender as Button).Name;
+                BL_PageContent.VarOutput = "";
+                switch (name) // case statement for the name, do things depending on the button clicked
+                {
+                    case "btnCourse1":
+                        BL_PageContent.CourseCredits(1);
+                        listViewCourses.Items.Add(BL_PageContent.VarOutput);
+                        dialog = new MessageDialog(BL_PageContent.VarOutput);
+                        await dialog.ShowAsync();
+                        break;
+                    case "btnCourse2":
+                        BL_PageContent.CourseCredits(2);
+                        listViewCourses.Items.Add(BL_PageContent.VarOutput);
+                        dialog = new MessageDialog(BL_PageContent.VarOutput);
+                        await dialog.ShowAsync();
+                        break;
+                    case "btnCourse3":
+                        BL_PageContent.CourseCredits(3);
+                        listViewCourses.Items.Add(BL_PageContent.VarOutput);
+                        dialog = new MessageDialog(BL_PageContent.VarOutput);
+                        await dialog.ShowAsync();
+                        break;
+                    default:
+                        listViewCourses.Items.Clear();
+                        break;
+                }
+            }
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Faculty));
         }
 
         //number click set the number to value and display

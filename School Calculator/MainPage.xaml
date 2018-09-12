@@ -9,24 +9,40 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:Name="button_NumberOne" Content="1" HorizontalAlignment="Left" Margin="99,121,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberOne_Click" RenderTransformOrigin="0.944,0.552"/>
-        <Button x:Name="button_NumberTwo" Content="2" HorizontalAlignment="Left" Margin="164,121,0,0" VerticalAlignment="Top" Width="51" RenderTransformOrigin="2.123,1.264" Click="button_NumberTwo_Click"/>
-        <Button x:Name="button_NumberThree" Content="3" HorizontalAlignment="Left" Margin="228,121,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberThree_Click"/>
-        <Button x:Name="button_NumberFour" Content="4" HorizontalAlignment="Left" Margin="99,158,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberFour_Click"/>
-        <Button x:Name="button_NumberFive" Content="5" HorizontalAlignment="Left" Margin="164,158,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberFive_Click"/>
-        <Button x:Name="button_NumberSix" Content="6" HorizontalAlignment="Left" Margin="228,158,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberSix_Click"/>
-        <Button x:Name="button_NumberSeven" Content="7" HorizontalAlignment="Left" Margin="99,195,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberSeven_Click"/>
-        <Button x:Name="button_NumberEight" Content="8" HorizontalAlignment="Left" Margin="164,195,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberEight_Click"/>
-        <Button x:Name="button__NumberNine" Content="9" HorizontalAlignment="Left" Margin="228,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.028,0.219" Width="51" Click="button__NumberNine_Click"/>
-        <Button x:Name="button_NumberZero" Content="0" HorizontalAlignment="Left" Margin="164,232,0,0" VerticalAlignment="Top" Width="51" Click="button_NumberZero_Click"/>
-        <Button x:Name="button_Plus" Content="+" HorizontalAlignment="Left" Margin="284,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.091,0.146" Width="42" Background="#330005FF" Click="button_Plus_Click"/>
-        <Button x:Name="button_Minus" Content="-" HorizontalAlignment="Left" Margin="284,158,0,0" VerticalAlignment="Top" Width="42" Background="#330017FF" Click="button_Minus_Click"/>
-        <Button x:Name="button_Times" Content="*" HorizontalAlignment="Left" Margin="284,195,0,0" VerticalAlignment="Top" Width="42" Background="#330017FC" Click="button_Times_Click"/>
-        <Button x:Name="button_Divition" Content="/" HorizontalAlignment="Left" Margin="284,232,0,0" VerticalAlignment="Top" Width="42" Background="#330017FC" Click="button_Divition_Click"/>
-        <Button x:Name="button_Reminder" Content="%" HorizontalAlignment="Left" Margin="228,232,0,0" VerticalAlignment="Top" Width="51" Background="#330017FC" Click="button_Reminder_Click"/>
-        <Button x:Name="btnSubmit" Content="Enter" HorizontalAlignment="Left" Margin="164,269,0,0" VerticalAlignment="Top" Width="162" Background="#33E30000" BorderBrush="LightCoral" Click="ProcessCalc"/>
-        <TextBlock x:Name="txtBoxDisplay" HorizontalAlignment="Left" Margin="99,72,0,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top" RenderTransformOrigin="0.239,0.742" Width="210" Height="44"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="229" Margin="10,72,0,0" VerticalAlignment="Top" Width="84"/>
-        <Button x:Name="button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="99,232,0,0" VerticalAlignment="Top" Width="60" Height="69" Background="#33DAFF00" Click="button_Clear_Click"/>
+        <Button x:Name="button_NumberOne" Content="1" HorizontalAlignment="Left" Margin="624,123,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberOne_Click" RenderTransformOrigin="0.944,0.552"/>
+        <Button x:Name="button_NumberTwo" Content="2" HorizontalAlignment="Left" Margin="708,123,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.123,1.264" Click="button_NumberTwo_Click"/>
+        <Button x:Name="button_NumberThree" Content="3" HorizontalAlignment="Left" Margin="794,123,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberThree_Click"/>
+        <Button x:Name="button_NumberFour" Content="4" HorizontalAlignment="Left" Margin="624,161,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberFour_Click"/>
+        <Button x:Name="button_NumberFive" Content="5" HorizontalAlignment="Left" Margin="708,160,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberFive_Click"/>
+        <Button x:Name="button_NumberSix" Content="6" HorizontalAlignment="Left" Margin="794,160,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberSix_Click"/>
+        <Button x:Name="button_NumberSeven" Content="7" HorizontalAlignment="Left" Margin="624,197,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberSeven_Click"/>
+        <Button x:Name="button_NumberEight" Content="8" HorizontalAlignment="Left" Margin="708,197,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberEight_Click"/>
+        <Button x:Name="button__NumberNine" Content="9" HorizontalAlignment="Left" Margin="794,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.028,0.219" Width="80" Click="button__NumberNine_Click"/>
+        <Button x:Name="button_NumberZero" Content="0" HorizontalAlignment="Left" Margin="708,234,0,0" VerticalAlignment="Top" Width="80" Click="button_NumberZero_Click"/>
+        <Button x:Name="button_Plus" Content="+" HorizontalAlignment="Left" Margin="879,123,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.091,0.146" Width="80" Background="#330005FF" Click="button_Plus_Click"/>
+        <Button x:Name="button_Minus" Content="-" HorizontalAlignment="Left" Margin="879,160,0,0" VerticalAlignment="Top" Width="80" Background="#330017FF" Click="button_Minus_Click"/>
+        <Button x:Name="button_Times" Content="*" HorizontalAlignment="Left" Margin="879,197,0,0" VerticalAlignment="Top" Width="80" Background="#330017FC" Click="button_Times_Click"/>
+        <Button x:Name="button_Divition" Content="/" HorizontalAlignment="Left" Margin="879,234,0,0" VerticalAlignment="Top" Width="80" Background="#330017FC" Click="button_Divition_Click"/>
+        <Button x:Name="button_Reminder" Content="%" HorizontalAlignment="Left" Margin="794,234,0,0" VerticalAlignment="Top" Width="80" Background="#330017FC" Click="button_Reminder_Click"/>
+        <Button x:Name="btnSubmit" Content="Enter" HorizontalAlignment="Left" Margin="709,269,0,0" VerticalAlignment="Top" Width="250" Background="#33E30000" BorderBrush="LightCoral" Click="ProcessCalc"/>
+        <Border BorderThickness="1" BorderBrush="DarkBlue">
+            <TextBlock x:Name="txtBoxDisplay" HorizontalAlignment="Left" Margin="623,72,1,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top" RenderTransformOrigin="0.239,0.742" Width="336" Height="44" />
+        </Border>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="229" Margin="374,72,0,0" VerticalAlignment="Top" Width="244" BorderThickness="1" BorderBrush="DarkBlue"/>
+        <Button x:Name="button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="624,234,0,0" VerticalAlignment="Top" Width="80" Height="67" Background="#33DAFF00" Click="button_Clear_Click"/>
+        <!--Week 03 -->
+        <HyperlinkButton x:Uid="hlkWebSite" Content="Go" HorizontalAlignment="Left" Margin="374,26,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCourse1" Content="Course 1" HorizontalAlignment="Left" Margin="374,374,0,0" VerticalAlignment="Top" Click="BtnCourse_Click"/>
+        <Button x:Name="btnCourse2" Content="Course 2" HorizontalAlignment="Left" Margin="626,374,0,0" VerticalAlignment="Top" Click="BtnCourse_Click"/>
+        <Button x:Name="btnCourse3" Content="Course 3" HorizontalAlignment="Left" Margin="875,374,0,0" VerticalAlignment="Top" Click="BtnCourse_Click" RenderTransformOrigin="-0.102,0.399"/>
+        <ListView x:Name="listViewCourses" HorizontalAlignment="Left" Height="220" Margin="374,452,0,0" VerticalAlignment="Top" Width="579" BorderThickness="1" BorderBrush="DarkBlue"/>
+        <HyperlinkButton HorizontalAlignment="Left" Margin="997,49,0,0" VerticalAlignment="Top">
+            <HyperlinkButton Content="Faculty" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click">
+                <HyperlinkButton.RenderTransform>
+                    <CompositeTransform Rotation="0.306"/>
+                </HyperlinkButton.RenderTransform>
+            </HyperlinkButton>
+        </HyperlinkButton>
+        <TextBox x:Name="txtBoxFooter" TextAlignment="Left" HorizontalAlignment="Left" Margin="374,720,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="580" BorderThickness="1" BorderBrush="DarkBlue" IsReadOnly="True"/>
     </Grid>
 </Page>
