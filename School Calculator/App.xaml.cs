@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -96,5 +97,11 @@ namespace School_Calculator
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+        
+
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+           "https://cis4655c-webapp1.azurewebsites.net"
+        );
+
     }
 }

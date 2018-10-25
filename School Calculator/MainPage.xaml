@@ -25,17 +25,18 @@
         <Button x:Name="button_Divition" Content="/" HorizontalAlignment="Left" Margin="879,234,0,0" VerticalAlignment="Top" Width="80" Background="#330017FC" Click="button_Divition_Click"/>
         <Button x:Name="button_Reminder" Content="%" HorizontalAlignment="Left" Margin="794,234,0,0" VerticalAlignment="Top" Width="80" Background="#330017FC" Click="button_Reminder_Click"/>
         <Button x:Name="btnSubmit" Content="Enter" HorizontalAlignment="Left" Margin="709,269,0,0" VerticalAlignment="Top" Width="250" Background="#33E30000" BorderBrush="LightCoral" Click="ProcessCalc"/>
-        <Border BorderThickness="1" BorderBrush="DarkBlue">
-            <TextBlock x:Name="txtBoxDisplay" HorizontalAlignment="Left" Margin="623,72,1,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top" RenderTransformOrigin="0.239,0.742" Width="336" Height="44" />
+        <Border BorderThickness="1" BorderBrush="DarkBlue" Margin="10,26,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock x:Name="txtBoxDisplay" HorizontalAlignment="Left" Margin="612.111,47.111,0,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top" RenderTransformOrigin="0.239,0.742" Width="336" Height="44" />
         </Border>
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="229" Margin="374,72,0,0" VerticalAlignment="Top" Width="244" BorderThickness="1" BorderBrush="DarkBlue"/>
         <Button x:Name="button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="624,234,0,0" VerticalAlignment="Top" Width="80" Height="67" Background="#33DAFF00" Click="button_Clear_Click"/>
         <!--Week 03 -->
+        <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="509,324,0,0" VerticalAlignment="Top" Width="376"  Source="http://www.rasmussen.edu/images/logo-internal.png"/>
         <HyperlinkButton x:Uid="hlkWebSite" Content="Go" HorizontalAlignment="Left" Margin="374,26,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCourse1" Content="Course 1" HorizontalAlignment="Left" Margin="374,374,0,0" VerticalAlignment="Top" Click="BtnCourse_Click"/>
-        <Button x:Name="btnCourse2" Content="Course 2" HorizontalAlignment="Left" Margin="626,374,0,0" VerticalAlignment="Top" Click="BtnCourse_Click"/>
-        <Button x:Name="btnCourse3" Content="Course 3" HorizontalAlignment="Left" Margin="875,374,0,0" VerticalAlignment="Top" Click="BtnCourse_Click" RenderTransformOrigin="-0.102,0.399"/>
-        <ListView x:Name="listViewCourses" HorizontalAlignment="Left" Height="220" Margin="374,452,0,0" VerticalAlignment="Top" Width="579" BorderThickness="1" BorderBrush="DarkBlue"/>
+        <Button x:Name="btnCourse1" Content="Course 1" HorizontalAlignment="Left" Margin="374,416,0,0" VerticalAlignment="Top" Click="BtnCourse_Click"/>
+        <Button x:Name="btnCourse2" Content="Course 2" HorizontalAlignment="Left" Margin="625,416,0,0" VerticalAlignment="Top" Click="BtnCourse_Click"/>
+        <Button x:Name="btnCourse3" Content="Course 3" HorizontalAlignment="Left" Margin="875,416,0,0" VerticalAlignment="Top" Click="BtnCourse_Click" RenderTransformOrigin="-0.102,0.399"/>
+        <ListView x:Name="listViewCourses" HorizontalAlignment="Left" Height="220" Margin="374,480,0,0" VerticalAlignment="Top" Width="579" BorderThickness="1" BorderBrush="DarkBlue"/>
         <HyperlinkButton HorizontalAlignment="Left" Margin="997,49,0,0" VerticalAlignment="Top">
             <HyperlinkButton Content="Faculty" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click">
                 <HyperlinkButton.RenderTransform>
@@ -43,6 +44,16 @@
                 </HyperlinkButton.RenderTransform>
             </HyperlinkButton>
         </HyperlinkButton>
+
+        <HyperlinkButton HorizontalAlignment="Left" Margin="900,49,0,0" VerticalAlignment="Top">
+            <HyperlinkButton Content="UserAuth" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click_1">
+                <HyperlinkButton.RenderTransform>
+                    <CompositeTransform Rotation="0.306"/>
+                </HyperlinkButton.RenderTransform>
+            </HyperlinkButton>
+        </HyperlinkButton>
+
+
         <TextBox x:Name="txtBoxFooter" TextAlignment="Left" HorizontalAlignment="Left" Margin="374,720,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="580" BorderThickness="1" BorderBrush="DarkBlue" IsReadOnly="True"/>
     </Grid>
 </Page>
