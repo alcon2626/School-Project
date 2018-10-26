@@ -18,12 +18,13 @@ using Windows.UI.Popups;
 using Windows.Storage;
 using System.Net.Http;
 using Newtonsoft.Json;
-
+using System.Diagnostics;
 using SQLite;
 using SQLite.Net;
 using SQLite.Net.Async;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
+using System.Collections.ObjectModel;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -53,6 +54,7 @@ namespace School_Calculator
         }
 
         private IMobileServiceSyncTable<User_Cred> todoGetTable = App.MobileService.GetSyncTable<User_Cred>();
+        private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>();
 
         private async Task InitLocalStoreAsync()
         {
@@ -60,6 +62,7 @@ namespace School_Calculator
             {
                 var store = new MobileServiceSQLiteStore("Rasmussen.db");
                 store.DefineTable<User_Cred>();
+                store.DefineTable<TodoItem>();
                 await App.MobileService.SyncContext.InitializeAsync(store);
             }
             await SyncAsync();
@@ -69,6 +72,7 @@ namespace School_Calculator
         {
             await App.MobileService.SyncContext.PushAsync();
             await todoGetTable.PullAsync("User_Cred", todoGetTable.CreateQuery());
+            await todoTable.PullAsync("TodoItem", todoTable.CreateQuery());
         }
 
 
@@ -142,9 +146,9 @@ namespace School_Calculator
 
         }
 
-        private void btnSync_Click(object sender, RoutedEventArgs e)
+        private async void btnSync_Click(object sender, RoutedEventArgs e)
         {
-            InitLocalStoreAsync();
+            await InitLocalStoreAsync();
         }
 
         //C# to call MainPage from HyperLink button
@@ -153,6 +157,88 @@ namespace School_Calculator
             this.Frame.Navigate(typeof(MainPage));
         }
 
+        public class TodoItem
+        {
+            public string Id { get; set; }
+            public string Text { get; set; }
+            public bool Complete { get; set; }
+        }
 
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            await InitLocalStoreAsync();
+            try
+            {
+                var mytext = textBox.Text;
+                if(mytext == "" || mytext == null)
+                {
+                    mytext = "My first to do item";
+                }
+                TodoItem todoItem = new TodoItem() { Text = mytext, Complete = false };
+                await todoTable.InsertAsync(todoItem);
+
+            }
+            catch (Exception em)
+            {
+                var dialog = new MessageDialog("An Error Occured: " + em.Message);
+                await dialog.ShowAsync();
+            }
+            
+        }
+
+        private async void btnRefresh_Click_1(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Refresh called");
+            await InitLocalStoreAsync();
+            await RefreshTodoItems();
+        }
+
+        Collection<TodoItem> items = null;
+        private async Task RefreshTodoItems()
+        {
+            
+            MobileServiceInvalidOperationException exception = null;
+            try
+            {
+                // This code refreshes the entries in the list view by querying the TodoItems table.
+                // The query excludes completed TodoItems
+                items = await todoTable
+                    .Where(todoItem => todoItem.Complete == false)
+                    .ToCollectionAsync();
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                exception = e;
+            }
+
+            if (exception != null)
+            {
+                await new MessageDialog(exception.Message, "Error loading items").ShowAsync();
+            }
+            else
+            {
+                Debug.WriteLine(items);
+                ListItems.ItemsSource = items;
+                this.btnRefresh.IsEnabled = true;
+            }
+        }
+
+        private async void CheckBoxComplete_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            TodoItem item = cb.DataContext as TodoItem;
+            await UpdateCheckedTodoItem(item);
+        }
+
+        private async Task UpdateCheckedTodoItem(TodoItem item)
+        {
+            // This code takes a freshly completed TodoItem and updates the database. When the MobileService 
+            // responds, the item is removed from the list 
+            await todoTable.UpdateAsync(item);
+            items.Remove(item);
+            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
+
+            //await SyncAsync(); // offline sync
+        }
     }
 }

@@ -10,12 +10,25 @@
 
     <Grid>
         <TextBox x:Name="txtBoxUserId" HorizontalAlignment="Left" Margin="139,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148"/>
-        <TextBox x:Name="lblUserID" HorizontalAlignment="Left" Margin="50,197,0,0" TextWrapping="Wrap" Text="UserID:" VerticalAlignment="Top" IsReadOnly="True" BorderBrush="#FFFDF9F9"/>
+        <TextBox x:Name="lblUserID" HorizontalAlignment="Left" Margin="34,197,0,0" TextWrapping="Wrap" Text="UserID:" VerticalAlignment="Top" IsReadOnly="True" BorderBrush="#FFFDF9F9"/>
         <TextBox x:Name="lblPasswd" HorizontalAlignment="Left" Margin="34,242,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" BorderBrush="#FFF9F9F9" IsReadOnly="True"/>
         <TextBox x:Name="txtBoxPasswd" HorizontalAlignment="Left" Margin="139,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148"/>
         <Button x:Name="btnSubmit" Content="Login" HorizontalAlignment="Left" Margin="215,295,0,0" VerticalAlignment="Top" Click="btnSubmit_Click"/>
         <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="215,343,0,0" VerticalAlignment="Top" Click="btnRegister_Click"/>
         <Button x:Name="btnSync" Content="Sync DB" HorizontalAlignment="Left" Margin="215,388,0,0" VerticalAlignment="Top" Click="btnSync_Click"/>
         <HyperlinkButton Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
+        <Button x:Name="button" Content="Test Todo Item Table" HorizontalAlignment="Left" Margin="618,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.391,-0.848" Click="button_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="402,197,0,0" Text="" VerticalAlignment="Top" Width="197"/>
+        <ListView Name="ListItems" Margin="62,454,155,63" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1" BorderBrush="DarkBlue">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1275,404,0,0" VerticalAlignment="Top" Click="btnRefresh_Click_1"/>
+
     </Grid>
 </Page>

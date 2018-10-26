@@ -32,7 +32,6 @@ namespace School_Calculator
         double Result;
         double Number_1 = 10, Number_2 = 10, Number_3 = 10, Number_4 = 10, Number_5 = 10, Number_6 = 10, Number_7 = 10, Number_8 = 10, Number_9 = 10, Number_0 = 10;
         //strings
-        string Operand;
         string Number;
         //operators
         string Plus, Minus, Times, Divition, Reminder;
