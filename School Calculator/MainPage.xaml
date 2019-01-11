@@ -38,7 +38,7 @@
         <Button x:Name="btnCourse3" Content="Course 3" HorizontalAlignment="Left" Margin="875,416,0,0" VerticalAlignment="Top" Click="BtnCourse_Click" RenderTransformOrigin="-0.102,0.399"/>
         <ListView x:Name="listViewCourses" HorizontalAlignment="Left" Height="220" Margin="374,480,0,0" VerticalAlignment="Top" Width="579" BorderThickness="1" BorderBrush="DarkBlue"/>
         <HyperlinkButton HorizontalAlignment="Left" Margin="997,49,0,0" VerticalAlignment="Top">
-            <HyperlinkButton Content="Faculty" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click">
+            <HyperlinkButton Content="Faculty" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click">
                 <HyperlinkButton.RenderTransform>
                     <CompositeTransform Rotation="0.306"/>
                 </HyperlinkButton.RenderTransform>
@@ -46,14 +46,15 @@
         </HyperlinkButton>
 
         <HyperlinkButton HorizontalAlignment="Left" Margin="900,49,0,0" VerticalAlignment="Top">
-            <HyperlinkButton Content="UserAuth" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click_1">
+            <HyperlinkButton Content="UserAuth" HorizontalAlignment="Left" Height="42" Margin="-118,-30.905,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.345,0.493" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="HyperlinkButton_Click_1">
                 <HyperlinkButton.RenderTransform>
-                    <CompositeTransform Rotation="0.306"/>
+                    <CompositeTransform Rotation="0.306" TranslateX="0.002" TranslateY="-0.091"/>
                 </HyperlinkButton.RenderTransform>
             </HyperlinkButton>
         </HyperlinkButton>
 
 
         <TextBox x:Name="txtBoxFooter" TextAlignment="Left" HorizontalAlignment="Left" Margin="374,720,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="580" BorderThickness="1" BorderBrush="DarkBlue" IsReadOnly="True"/>
+        <HyperlinkButton Content="Inventory" HorizontalAlignment="Left" Margin="709,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.03,-0.719" Click="HyperlinkButton_Click_2"/>
     </Grid>
 </Page>
