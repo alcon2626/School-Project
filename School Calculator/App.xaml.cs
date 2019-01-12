@@ -100,7 +100,7 @@ namespace School_Calculator
         
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-           "https://cis4655c-webapp1.azurewebsites.net"
+           "https://cop4777cappservice.azurewebsites.net"
         );
 
     }
