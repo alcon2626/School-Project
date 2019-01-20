@@ -107,9 +107,112 @@ namespace School_Calculator
 
         private async void Btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
+            listNames.Items.Clear();
+            listQuantity.Items.Clear();
             Debug.WriteLine("Refresh called");
             await InitLocalStoreAsync();
             await RefreshTodoItems();
+        }
+
+        async private void Btn_UpdateItem_Click(object sender, RoutedEventArgs e)
+        {
+            await InitLocalStoreAsync();
+            List<Inventory_EasyTable> ITEMIDs;
+            MessageDialog dialog;
+            try
+            {
+                string itemname = await InputTextDialogAsync("Please enter new item name.");
+                string itemquatity = await InputTextDialogAsync("Please enter new item quatity.");
+                if (itemname == "" || itemquatity == "") { return; }
+                if (!IsNumeric(itemquatity))
+                {
+                    dialog = new MessageDialog("Please enter a numeric value and try again.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                ITEMIDs = await todoGetTable
+                    .Where(Inventory_EasyTable => Inventory_EasyTable.ItemName == itemname)
+                    .ToListAsync();
+                Debug.WriteLine(ITEMIDs[0].ToString());
+                Inventory_EasyTable itemReg = new Inventory_EasyTable
+                {
+                    id = ITEMIDs[0].id.ToString(),//"e9b35795-1e61-4c71-aba7-61391da13338",
+                    ItemName = itemname,
+                    Quantity = Int32.Parse(itemquatity),
+                    Complete = false
+                };
+                await todoGetTable.UpdateAsync(itemReg);
+                dialog = new MessageDialog("Successful!");
+                await dialog.ShowAsync();
+            }
+            catch (Exception em)
+            {
+                dialog = new MessageDialog("An Error Occured: " + em.Message);
+                await dialog.ShowAsync();
+            }
+            string text = listNames.SelectedItems[0].ToString();
+            Debug.WriteLine(text);
+        }
+
+        TextBox inputTextBox;
+        /*******************************************************************************helper functions***************************************************************************/
+        private async Task<string> InputTextDialogAsync(string title)
+        {
+            inputTextBox = new TextBox();
+            inputTextBox.AcceptsReturn = false;
+            inputTextBox.Height = 32;
+            ContentDialog dialog = new ContentDialog();
+            dialog.Content = inputTextBox;
+            dialog.Title = title;
+            dialog.IsSecondaryButtonEnabled = true;
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Cancel";
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+                return inputTextBox.Text;
+            else
+                return "";
+        }
+
+        public static bool IsNumeric(string str)
+        {
+            try
+            {
+                str = str.Trim();
+                int foo = int.Parse(str);
+                return (true);
+            }
+            catch (FormatException)
+            {
+                // Not a numeric value
+                return (false);
+            }
+        }
+
+        private async Task<List<Inventory_EasyTable>> GetItem(string name)
+        {
+            List<Inventory_EasyTable> items = null;
+
+            MobileServiceInvalidOperationException exception = null;
+            try
+            {
+                items = await todoGetTable
+                     .Where(Inventory_EasyTable => Inventory_EasyTable.ItemName == name)
+                     .ToListAsync();
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                exception = e;
+            }
+
+            if (exception != null)
+            {
+                await new MessageDialog(exception.Message, "Error loading items").ShowAsync();
+                return null;
+            }
+            else
+            {
+                return items;
+            }
         }
 
         List<string> Names;
@@ -153,37 +256,5 @@ namespace School_Calculator
             }
         }
 
-        //helper functions
-        private async Task<string> InputTextDialogAsync(string title)
-        {
-            TextBox inputTextBox = new TextBox();
-            inputTextBox.AcceptsReturn = false;
-            inputTextBox.Height = 32;
-            ContentDialog dialog = new ContentDialog();
-            dialog.Content = inputTextBox;
-            dialog.Title = title;
-            dialog.IsSecondaryButtonEnabled = true;
-            dialog.PrimaryButtonText = "Ok";
-            dialog.SecondaryButtonText = "Cancel";
-            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
-                return inputTextBox.Text;
-            else
-                return "";
-        }
-
-        public static bool IsNumeric(string str)
-        {
-            try
-            {
-                str = str.Trim();
-                int foo = int.Parse(str);
-                return (true);
-            }
-            catch (FormatException)
-            {
-                // Not a numeric value
-                return (false);
-            }
-        }
     }
 }

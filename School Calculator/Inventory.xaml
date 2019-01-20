@@ -13,7 +13,7 @@
         <ListView x:Name="listNames" HorizontalAlignment="Right" Margin="0,190,565,0" BorderThickness="1" BorderBrush="Black" Width="485" VerticalAlignment="Top" Height="485"></ListView>
         <TextBox x:Name="textBox" HorizontalAlignment="Right" Margin="0,153,694,0" Text="Here is a list of item that are currently in the inventory." VerticalAlignment="Top" IsReadOnly="True"/>
         <Button x:Name="btn_AddItem" Content="Add Item" HorizontalAlignment="Right" Margin="0,190,295,0" VerticalAlignment="Top" Width="115" Click="Btn_AddItem_Click"/>
-        <Button x:Name="btn_UpdateItem" Content="Update Item" HorizontalAlignment="Right" Margin="0,258,295,0" VerticalAlignment="Top" Width="115"/>
+        <Button x:Name="btn_UpdateItem" Content="Update Item" HorizontalAlignment="Right" Margin="0,258,295,0" VerticalAlignment="Top" Width="115" Click="Btn_UpdateItem_Click"/>
         <Button x:Name="btn_DeleteItem" Content="Delete Item" HorizontalAlignment="Right" Margin="0,333,295,0" VerticalAlignment="Top" Width="116"/>
         <Button x:Name="btn_Refresh" Content="Refresh" HorizontalAlignment="Right" Margin="0,401,295,0" VerticalAlignment="Top" Width="115" Click="Btn_Refresh_Click"/>
         <Button x:Name="btn_Back" Content="Back" HorizontalAlignment="Right" Margin="0,644,294,0" VerticalAlignment="Top" Width="116" Click="Btn_Back_Click"/>
