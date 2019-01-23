@@ -23,6 +23,10 @@
         <!--<Border BorderThickness="1" BorderBrush="DarkBlue" Margin="10,26,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             
         </Border>-->
+        <Button x:Name="btnGetGPS2" Content="Get GPS Info" HorizontalAlignment="Right" Margin="0,535,296,0" VerticalAlignment="Top" Click="OneShotLocation_Click" Height="35" Width="115"/>
+        <TextBlock x:Name="StatusTextBlock" HorizontalAlignment="Right" Margin="0,160,113,0" TextWrapping="Wrap" Text="Status:" VerticalAlignment="Top" Height="22" Width="298"/>
+        <TextBlock x:Name="LatitudeTextBlock" HorizontalAlignment="Right" Margin="0,87,170,0" TextWrapping="Wrap" Text="Latitude:" VerticalAlignment="Top" Width="240"/>
+        <TextBlock x:Name="LongitudeTextBlock" HorizontalAlignment="Right" Margin="0,112,170,0" TextWrapping="Wrap" Text="Longitude:" VerticalAlignment="Top" Width="240"/>
 
     </Grid>
 </Page>
