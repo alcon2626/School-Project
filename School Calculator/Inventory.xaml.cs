@@ -190,9 +190,47 @@ namespace School_Calculator
             Debug.WriteLine(text);
         }
 
+        async private void Btn_DeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            await InitLocalStoreAsync();
+            List<Inventory_EasyTable> ITEMIDs;
+            MessageDialog dialog;
+            bool result = await WarningDialogAsync("The selected item will be deleted");
+            if (!result)
+            {
+                return;
+            }
+            else
+            {
+                try
+                {
+                    string itemname = listNames.SelectedItems[0].ToString();
+                    ITEMIDs = await todoGetTable
+                        .Where(Inventory_EasyTable => Inventory_EasyTable.ItemName == itemname)
+                        .ToListAsync();
+                    Debug.WriteLine(ITEMIDs[0].ToString());
+                    Inventory_EasyTable itemReg = new Inventory_EasyTable
+                    {
+                        id = ITEMIDs[0].id.ToString(),//"e9b35795-1e61-4c71-aba7-61391da13338",
+                        ItemName = itemname,
+                        Quantity = 0,
+                        Complete = false
+                    };
+                    await todoGetTable.DeleteAsync(itemReg);
+                    dialog = new MessageDialog("Successful!");
+                    await dialog.ShowAsync();
+                }
+                catch (Exception em)
+                {
+                    dialog = new MessageDialog("An Error Occured: " + em.Message);
+                    await dialog.ShowAsync();
+                }
+            }                        
+        }
+
         TextBox inputTextBox;
         /*******************************************************************************helper functions***************************************************************************/
-        private async Task<string> InputTextDialogAsync(string title)
+        private async Task<string> InputTextDialogAsync(string title)//creates a diologbox
         {
             inputTextBox = new TextBox();
             inputTextBox.AcceptsReturn = false;
@@ -209,7 +247,20 @@ namespace School_Calculator
                 return "";
         }
 
-        public static bool IsNumeric(string str)
+        private async Task<bool> WarningDialogAsync(string title)//creates a warning diologbox
+        {
+            ContentDialog dialog = new ContentDialog();
+            dialog.Title = title;
+            dialog.IsSecondaryButtonEnabled = true;
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Cancel";
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool IsNumeric(string str) //is numeric
         {
             try
             {
@@ -223,7 +274,7 @@ namespace School_Calculator
                 return (false);
             }
         }
-
+        //get item id
         private async Task<List<Inventory_EasyTable>> GetItem(string name)
         {
             List<Inventory_EasyTable> items = null;
@@ -250,7 +301,7 @@ namespace School_Calculator
                 return items;
             }
         }
-
+        //refresh grid
         List<string> Names;
         List<string> Quantity;
         private async Task RefreshTodoItems()
@@ -291,6 +342,5 @@ namespace School_Calculator
                 this.btn_Refresh.IsEnabled = true;
             }
         }
-
     }
 }
