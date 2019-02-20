@@ -146,6 +146,11 @@ namespace School_Calculator
             this.Frame.Navigate(typeof(Inventory));
         }
 
+        private void HyperlinkButton_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GoogleAuth));
+        }
+
         //number click set the number to value and display
         private void button_NumberFive_Click(object sender, RoutedEventArgs e)
         {

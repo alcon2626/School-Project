@@ -335,10 +335,14 @@ namespace School_Calculator
                 {
                     listNames.Items.Add(value);
                 }
+                Itemcount.Text = "Total number of items: " + listNames.Items.Count.ToString();
+                Int32 Total = 0;
                 foreach (var value in Quantity)
                 {
                     listQuantity.Items.Add(value);
+                    Total += Int32.Parse(value);
                 }
+                Itemtotal.Text = Total.ToString();
                 this.btn_Refresh.IsEnabled = true;
             }
         }

@@ -99,6 +99,9 @@
     <Compile Include="Faculty.xaml.cs">
       <DependentUpon>Faculty.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GoogleAuth.xaml.cs">
+      <DependentUpon>GoogleAuth.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Inventory.xaml.cs">
       <DependentUpon>Inventory.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Faculty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GoogleAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
